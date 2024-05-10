@@ -8,15 +8,15 @@
 
 /* Begin PBXBuildFile section */
 		053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C10582BEE29B200402C5D /* DeliverflyApp.swift */; };
-		053C105B2BEE29B200402C5D /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C105A2BEE29B200402C5D /* ContentView.swift */; };
 		053C105D2BEE29B400402C5D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 053C105C2BEE29B400402C5D /* Assets.xcassets */; };
+		053C10672BEE3F7B00402C5D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C10662BEE3F7B00402C5D /* SplashView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		053C10552BEE29B200402C5D /* Deliverfly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Deliverfly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		053C10582BEE29B200402C5D /* DeliverflyApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeliverflyApp.swift; sourceTree = "<group>"; };
-		053C105A2BEE29B200402C5D /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		053C105C2BEE29B400402C5D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		053C10662BEE3F7B00402C5D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,8 +50,8 @@
 			isa = PBXGroup;
 			children = (
 				053C10582BEE29B200402C5D /* DeliverflyApp.swift */,
-				053C105A2BEE29B200402C5D /* ContentView.swift */,
 				053C105C2BEE29B400402C5D /* Assets.xcassets */,
+				053C10662BEE3F7B00402C5D /* SplashView.swift */,
 			);
 			path = Deliverfly;
 			sourceTree = "<group>";
@@ -125,8 +125,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				053C105B2BEE29B200402C5D /* ContentView.swift in Sources */,
 				053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */,
+				053C10672BEE3F7B00402C5D /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

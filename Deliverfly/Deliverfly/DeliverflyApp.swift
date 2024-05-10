@@ -9,9 +9,20 @@ import SwiftUI
 
 @main
 struct DeliverflyApp: App {
+    @State private var isSplash = true
+
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            if isSplash {
+                SplashView()
+                    .onAppear {
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
+                            isSplash = false
+                        }
+                    }
+            } else {
+                Text("Home")
+            }
         }
     }
 }
