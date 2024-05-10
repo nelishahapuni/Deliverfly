@@ -8,6 +8,12 @@
 import SwiftUI
 
 struct RestaurantPreview: View {
+    let image: ImageResource
+    let name: String
+    let items: String
+    let rating: Double
+    let time: Int
+    
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             headerImage
@@ -20,7 +26,7 @@ struct RestaurantPreview: View {
 
 private extension RestaurantPreview {
     var headerImage: some View {
-        Image(.inNOut)
+        Image(image)
             .resizable()
             .scaledToFill()
             .frame(height: 140)
@@ -28,13 +34,13 @@ private extension RestaurantPreview {
     }
     
     var restaurantName: some View {
-        Text("In-n-Out Burger")
+        Text(name)
             .font(.title2)
             .foregroundStyle(.darkBlue)
     }
     
     var menuItems: some View {
-        Text("Double Double - Chocolate Shake - French Fries")
+        Text(items)
             .font(.subheadline)
             .foregroundStyle(.gray)
             .lineLimit(1)
@@ -45,7 +51,7 @@ private extension RestaurantPreview {
             Image(.star)
                 .renderingMode(.template)
                 .foregroundStyle(.darkOrange)
-            Text(String(5.0))
+            Text(String(rating))
                 .bold()
                 .foregroundStyle(.darkBlue)
             Image(.truck)
@@ -59,7 +65,7 @@ private extension RestaurantPreview {
                 .renderingMode(.template)
                 .foregroundStyle(.darkOrange)
                 .padding(.leading)
-            Text("\(20) min")
+            Text("\(time) min")
                 .fontWeight(.light)
                 .foregroundStyle(.darkBlue)
         }
@@ -68,5 +74,12 @@ private extension RestaurantPreview {
 }
 
 #Preview {
-    RestaurantPreview()
+    RestaurantPreview(
+        image: .inNOut,
+        name: "In-N-Out Burger",
+        items: "Double Double - Chocolate Shake - French Fries",
+        rating: 5.0,
+        time: 20
+    )
+    // format: control ^ + M
 }
