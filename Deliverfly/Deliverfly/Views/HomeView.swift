@@ -58,13 +58,29 @@ private extension HomeView {
     }
     
     var restaurantsList: some View {
-        RestaurantPreview(
-            image: .inNOut,
-            name: "In-N-Out Burger",
-            items: "Double Double - Chocolate Shake - French Fries",
-            rating: 5.0,
-            time: 20
-        )
+        VStack {
+            RestaurantPreview(
+                image: .inNOut,
+                name: "In-N-Out Burger",
+                items: "Double Double - Chocolate Shake - French Fries",
+                rating: 5.0,
+                time: 20
+            )
+            RestaurantPreview(
+                image: .fiveGuys,
+                name: "Five Guys",
+                items: "Cheeseburger - Fries - Milkshake - Sandwich",
+                rating: 4.7,
+                time: 45
+            )
+            RestaurantPreview(
+                image: .subway,
+                name: "Subway",
+                items: "Wrap - Footlong - Salad - Cookie",
+                rating: 3.5,
+                time: 50
+            )
+        }
     }
 }
 
