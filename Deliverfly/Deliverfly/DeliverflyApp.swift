@@ -21,7 +21,7 @@ struct DeliverflyApp: App {
                         }
                     }
             } else {
-                Text("Home")
+                HomeView()
             }
         }
     }
