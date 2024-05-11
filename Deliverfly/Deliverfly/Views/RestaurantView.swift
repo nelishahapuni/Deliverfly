@@ -1,0 +1,89 @@
+//
+//  RestaurantView.swift
+//  Deliverfly
+//
+//  Created by Neli Shahapuni on 5/11/24.
+//
+
+import SwiftUI
+
+struct RestaurantView: View {
+    @State private var selectedFood: Food?
+    let restaurant: Restaurant
+    
+    var body: some View {
+        ScrollView {
+            VStack(alignment: .leading) {
+                HStack {
+                    backButton
+                    Text("Restaurant")
+                    Spacer()
+                }
+                restaurantImage
+                nameText
+                descriptionText
+                menuText
+                foodsGrid
+            }
+            .padding(.horizontal)
+        }
+    }
+}
+
+private extension RestaurantView {
+    
+    var backButton: some View {
+        Button {
+            // go back
+        } label: {
+            backButtonView
+        }
+    }
+    
+    var restaurantImage: some View {
+        Image(restaurant.image)
+            .resizable()
+            .scaledToFill()
+            .frame(height: 150)
+            .clipShape(RoundedRectangle(cornerRadius: 15))
+            .padding(.vertical)
+            .allowsHitTesting(false)
+    }
+    
+    var nameText: some View {
+        Text(restaurant.name)
+            .font(.title2)
+            .bold()
+            .foregroundStyle(.darkBlue)
+            .padding(.vertical, 5)
+    }
+    
+    var descriptionText: some View {
+        Text(restaurant.description)
+            .font(.subheadline)
+            .lineSpacing(10)
+            .foregroundStyle(.gray)
+    }
+    
+    var menuText: some View {
+        Text("Menu")
+            .font(.title3)
+            .padding(.vertical)
+    }
+    
+    var foodsGrid: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))], spacing: 60) {
+            ForEach(restaurant.foods, id: \.self) { food in
+                Button {
+                    selectedFood = food
+                } label: {
+                    FoodPreview(food: food)
+                }
+            }
+        }
+    }
+}
+
+#Preview {
+    RestaurantView(restaurant: .inNOut)
+}
