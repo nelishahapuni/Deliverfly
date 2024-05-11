@@ -14,6 +14,7 @@
 		05A780802BEE7C1600575CBC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7807F2BEE7C1600575CBC /* HomeView.swift */; };
 		05A780832BEE8A8F00575CBC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780822BEE8A8F00575CBC /* Food.swift */; };
 		05A780852BEE8E5300575CBC /* FoodPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780842BEE8E5300575CBC /* FoodPreview.swift */; };
+		05A780882BEF836700575CBC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780872BEF836700575CBC /* Restaurant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		05A7807F2BEE7C1600575CBC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		05A780822BEE8A8F00575CBC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
 		05A780842BEE8E5300575CBC /* FoodPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPreview.swift; sourceTree = "<group>"; };
+		05A780872BEF836700575CBC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,7 +63,7 @@
 				053C105C2BEE29B400402C5D /* Assets.xcassets */,
 				05A780812BEE7C2300575CBC /* Views */,
 				05A780862BEE91A400575CBC /* Previews */,
-				05A780822BEE8A8F00575CBC /* Food.swift */,
+				05A780892BEF83CF00575CBC /* Models */,
 			);
 			path = Deliverfly;
 			sourceTree = "<group>";
@@ -82,6 +84,15 @@
 				05A780842BEE8E5300575CBC /* FoodPreview.swift */,
 			);
 			path = Previews;
+			sourceTree = "<group>";
+		};
+		05A780892BEF83CF00575CBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05A780822BEE8A8F00575CBC /* Food.swift */,
+				05A780872BEF836700575CBC /* Restaurant.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +167,7 @@
 				053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */,
 				05A780802BEE7C1600575CBC /* HomeView.swift in Sources */,
 				05A780832BEE8A8F00575CBC /* Food.swift in Sources */,
+				05A780882BEF836700575CBC /* Restaurant.swift in Sources */,
 				05A7807E2BEE77BC00575CBC /* RestaurantPreview.swift in Sources */,
 				05A780852BEE8E5300575CBC /* FoodPreview.swift in Sources */,
 				053C10672BEE3F7B00402C5D /* SplashView.swift in Sources */,
