@@ -17,6 +17,9 @@
 		05A780882BEF836700575CBC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780872BEF836700575CBC /* Restaurant.swift */; };
 		05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */; };
 		05AEEDBB2BEF9319009AA32C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDBA2BEF9319009AA32C /* Components.swift */; };
+		05AEEDC32BEFBE90009AA32C /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC22BEFBE90009AA32C /* Ingredient.swift */; };
+		05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC42BEFC147009AA32C /* FoodView.swift */; };
+		05AEEDC72BEFC1EB009AA32C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC62BEFC1EB009AA32C /* Navigation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +34,9 @@
 		05A780872BEF836700575CBC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
 		05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
 		05AEEDBA2BEF9319009AA32C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		05AEEDC22BEFBE90009AA32C /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
+		05AEEDC42BEFC147009AA32C /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
+		05AEEDC62BEFC1EB009AA32C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +75,7 @@
 				05A780862BEE91A400575CBC /* Previews */,
 				05A780892BEF83CF00575CBC /* Models */,
 				05AEEDBA2BEF9319009AA32C /* Components.swift */,
+				05AEEDC62BEFC1EB009AA32C /* Navigation.swift */,
 			);
 			path = Deliverfly;
 			sourceTree = "<group>";
@@ -79,6 +86,7 @@
 				053C10662BEE3F7B00402C5D /* SplashView.swift */,
 				05A7807F2BEE7C1600575CBC /* HomeView.swift */,
 				05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */,
+				05AEEDC42BEFC147009AA32C /* FoodView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -97,6 +105,7 @@
 			children = (
 				05A780822BEE8A8F00575CBC /* Food.swift */,
 				05A780872BEF836700575CBC /* Restaurant.swift */,
+				05AEEDC22BEFBE90009AA32C /* Ingredient.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -172,6 +181,9 @@
 			files = (
 				053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */,
 				05A780802BEE7C1600575CBC /* HomeView.swift in Sources */,
+				05AEEDC32BEFBE90009AA32C /* Ingredient.swift in Sources */,
+				05AEEDC72BEFC1EB009AA32C /* Navigation.swift in Sources */,
+				05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */,
 				05A780832BEE8A8F00575CBC /* Food.swift in Sources */,
 				05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */,
 				05A780882BEF836700575CBC /* Restaurant.swift in Sources */,

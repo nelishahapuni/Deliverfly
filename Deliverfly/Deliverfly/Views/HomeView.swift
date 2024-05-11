@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct HomeView: View {
+    @EnvironmentObject private var navigation: Navigation
     let list: [Restaurant] = .restaurants
 
     var body: some View {
@@ -62,7 +63,7 @@ private extension HomeView {
     var restaurantsList: some View {
         ForEach(list, id: \.self) { restaurant in
             Button {
-               // go to restaurant
+                navigation.goTo(view: .restaurant(info: restaurant))
             } label: {
                 RestaurantPreview(restaurant: restaurant)
             }

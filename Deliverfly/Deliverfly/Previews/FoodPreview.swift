@@ -51,7 +51,7 @@ private extension FoodPreview {
     }
     
     var hasExtras: some View {
-        Text("Standard")
+        Text(food.ingredients.isEmpty ? "Standard" : "Extras Available")
             .font(.footnote)
             .foregroundStyle(.gray)
     }

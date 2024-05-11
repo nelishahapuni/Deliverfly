@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RestaurantView: View {
+    @EnvironmentObject private var navigation: Navigation
     @State private var selectedFood: Food?
     let restaurant: Restaurant
     
@@ -27,6 +28,9 @@ struct RestaurantView: View {
             }
             .padding(.horizontal)
         }
+        .sheet(item: $selectedFood) { item in
+            foodView(item)
+        }
     }
 }
 
@@ -34,7 +38,7 @@ private extension RestaurantView {
     
     var backButton: some View {
         Button {
-            // go back
+            navigation.goBack()
         } label: {
             backButtonView
         }
@@ -81,6 +85,13 @@ private extension RestaurantView {
                 }
             }
         }
+    }
+    
+    @ViewBuilder func foodView(_ item: Food) -> some View {
+        FoodView(food: item)
+            .presentationDetents(item.ingredients.isEmpty ? [.fraction(0.63)] : [.fraction(0.93)])
+            .presentationDragIndicator(.visible)
+            .presentationCornerRadius(30)
     }
 }
 
