@@ -8,11 +8,7 @@
 import SwiftUI
 
 struct RestaurantPreview: View {
-    let image: ImageResource
-    let name: String
-    let items: String
-    let rating: Double
-    let time: Int
+    let restaurant: Restaurant
     
     var body: some View {
         VStack(alignment: .leading, spacing: 10) {
@@ -26,7 +22,7 @@ struct RestaurantPreview: View {
 
 private extension RestaurantPreview {
     var headerImage: some View {
-        Image(image)
+        Image(restaurant.image)
             .resizable()
             .scaledToFill()
             .frame(height: 140)
@@ -34,13 +30,13 @@ private extension RestaurantPreview {
     }
     
     var restaurantName: some View {
-        Text(name)
+        Text(restaurant.name)
             .font(.title2)
             .foregroundStyle(.darkBlue)
     }
     
     var menuItems: some View {
-        Text(items)
+        Text(restaurant.foods.map{ $0.name }.joined(separator: " - "))
             .font(.subheadline)
             .foregroundStyle(.gray)
             .lineLimit(1)
@@ -51,7 +47,7 @@ private extension RestaurantPreview {
             Image(.star)
                 .renderingMode(.template)
                 .foregroundStyle(.darkOrange)
-            Text(String(rating))
+            Text(String(restaurant.rating))
                 .bold()
                 .foregroundStyle(.darkBlue)
             Image(.truck)
@@ -65,7 +61,7 @@ private extension RestaurantPreview {
                 .renderingMode(.template)
                 .foregroundStyle(.darkOrange)
                 .padding(.leading)
-            Text("\(time) min")
+            Text("\(restaurant.time) min")
                 .fontWeight(.light)
                 .foregroundStyle(.darkBlue)
         }
@@ -74,12 +70,5 @@ private extension RestaurantPreview {
 }
 
 #Preview {
-    RestaurantPreview(
-        image: .inNOut,
-        name: "In-N-Out Burger",
-        items: "Double Double - Chocolate Shake - French Fries",
-        rating: 5.0,
-        time: 20
-    )
-    // format: control ^ + M
+    RestaurantPreview(restaurant: .inNOut)
 }
