@@ -20,6 +20,7 @@
 		05AEEDC32BEFBE90009AA32C /* Ingredient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC22BEFBE90009AA32C /* Ingredient.swift */; };
 		05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC42BEFC147009AA32C /* FoodView.swift */; };
 		05AEEDC72BEFC1EB009AA32C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC62BEFC1EB009AA32C /* Navigation.swift */; };
+		05AEEDC92BEFCBB7009AA32C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC82BEFCBB7009AA32C /* Item.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,6 +38,7 @@
 		05AEEDC22BEFBE90009AA32C /* Ingredient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredient.swift; sourceTree = "<group>"; };
 		05AEEDC42BEFC147009AA32C /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		05AEEDC62BEFC1EB009AA32C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
+		05AEEDC82BEFCBB7009AA32C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				05A780822BEE8A8F00575CBC /* Food.swift */,
 				05A780872BEF836700575CBC /* Restaurant.swift */,
 				05AEEDC22BEFBE90009AA32C /* Ingredient.swift */,
+				05AEEDC82BEFCBB7009AA32C /* Item.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */,
 				05A780832BEE8A8F00575CBC /* Food.swift in Sources */,
 				05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */,
+				05AEEDC92BEFCBB7009AA32C /* Item.swift in Sources */,
 				05A780882BEF836700575CBC /* Restaurant.swift in Sources */,
 				05A7807E2BEE77BC00575CBC /* RestaurantPreview.swift in Sources */,
 				05A780852BEE8E5300575CBC /* FoodPreview.swift in Sources */,
