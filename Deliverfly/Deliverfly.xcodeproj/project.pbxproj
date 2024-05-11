@@ -21,6 +21,7 @@
 		05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC42BEFC147009AA32C /* FoodView.swift */; };
 		05AEEDC72BEFC1EB009AA32C /* Navigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC62BEFC1EB009AA32C /* Navigation.swift */; };
 		05AEEDC92BEFCBB7009AA32C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC82BEFCBB7009AA32C /* Item.swift */; };
+		05AEEDD12BEFDB71009AA32C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDD02BEFDB71009AA32C /* Order.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		05AEEDC42BEFC147009AA32C /* FoodView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodView.swift; sourceTree = "<group>"; };
 		05AEEDC62BEFC1EB009AA32C /* Navigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Navigation.swift; sourceTree = "<group>"; };
 		05AEEDC82BEFCBB7009AA32C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
+		05AEEDD02BEFDB71009AA32C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				05A780872BEF836700575CBC /* Restaurant.swift */,
 				05AEEDC22BEFBE90009AA32C /* Ingredient.swift */,
 				05AEEDC82BEFCBB7009AA32C /* Item.swift */,
+				05AEEDD02BEFDB71009AA32C /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -188,6 +191,7 @@
 				05AEEDC72BEFC1EB009AA32C /* Navigation.swift in Sources */,
 				05AEEDC52BEFC147009AA32C /* FoodView.swift in Sources */,
 				05A780832BEE8A8F00575CBC /* Food.swift in Sources */,
+				05AEEDD12BEFDB71009AA32C /* Order.swift in Sources */,
 				05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */,
 				05AEEDC92BEFCBB7009AA32C /* Item.swift in Sources */,
 				05A780882BEF836700575CBC /* Restaurant.swift in Sources */,
