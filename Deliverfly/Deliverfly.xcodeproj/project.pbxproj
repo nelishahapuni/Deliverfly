@@ -12,6 +12,11 @@
 		053C10672BEE3F7B00402C5D /* SplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 053C10662BEE3F7B00402C5D /* SplashView.swift */; };
 		05A7807E2BEE77BC00575CBC /* RestaurantPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7807D2BEE77BC00575CBC /* RestaurantPreview.swift */; };
 		05A780802BEE7C1600575CBC /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A7807F2BEE7C1600575CBC /* HomeView.swift */; };
+		05A780832BEE8A8F00575CBC /* Food.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780822BEE8A8F00575CBC /* Food.swift */; };
+		05A780852BEE8E5300575CBC /* FoodPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780842BEE8E5300575CBC /* FoodPreview.swift */; };
+		05A780882BEF836700575CBC /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05A780872BEF836700575CBC /* Restaurant.swift */; };
+		05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */; };
+		05AEEDBB2BEF9319009AA32C /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDBA2BEF9319009AA32C /* Components.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +26,11 @@
 		053C10662BEE3F7B00402C5D /* SplashView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashView.swift; sourceTree = "<group>"; };
 		05A7807D2BEE77BC00575CBC /* RestaurantPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPreview.swift; sourceTree = "<group>"; };
 		05A7807F2BEE7C1600575CBC /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		05A780822BEE8A8F00575CBC /* Food.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Food.swift; sourceTree = "<group>"; };
+		05A780842BEE8E5300575CBC /* FoodPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodPreview.swift; sourceTree = "<group>"; };
+		05A780872BEF836700575CBC /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantView.swift; sourceTree = "<group>"; };
+		05AEEDBA2BEF9319009AA32C /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,7 +66,9 @@
 				053C10582BEE29B200402C5D /* DeliverflyApp.swift */,
 				053C105C2BEE29B400402C5D /* Assets.xcassets */,
 				05A780812BEE7C2300575CBC /* Views */,
-				05A7807D2BEE77BC00575CBC /* RestaurantPreview.swift */,
+				05A780862BEE91A400575CBC /* Previews */,
+				05A780892BEF83CF00575CBC /* Models */,
+				05AEEDBA2BEF9319009AA32C /* Components.swift */,
 			);
 			path = Deliverfly;
 			sourceTree = "<group>";
@@ -66,8 +78,27 @@
 			children = (
 				053C10662BEE3F7B00402C5D /* SplashView.swift */,
 				05A7807F2BEE7C1600575CBC /* HomeView.swift */,
+				05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		05A780862BEE91A400575CBC /* Previews */ = {
+			isa = PBXGroup;
+			children = (
+				05A7807D2BEE77BC00575CBC /* RestaurantPreview.swift */,
+				05A780842BEE8E5300575CBC /* FoodPreview.swift */,
+			);
+			path = Previews;
+			sourceTree = "<group>";
+		};
+		05A780892BEF83CF00575CBC /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				05A780822BEE8A8F00575CBC /* Food.swift */,
+				05A780872BEF836700575CBC /* Restaurant.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -141,7 +172,12 @@
 			files = (
 				053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */,
 				05A780802BEE7C1600575CBC /* HomeView.swift in Sources */,
+				05A780832BEE8A8F00575CBC /* Food.swift in Sources */,
+				05AEEDB92BEF8FD1009AA32C /* RestaurantView.swift in Sources */,
+				05A780882BEF836700575CBC /* Restaurant.swift in Sources */,
 				05A7807E2BEE77BC00575CBC /* RestaurantPreview.swift in Sources */,
+				05A780852BEE8E5300575CBC /* FoodPreview.swift in Sources */,
+				05AEEDBB2BEF9319009AA32C /* Components.swift in Sources */,
 				053C10672BEE3F7B00402C5D /* SplashView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

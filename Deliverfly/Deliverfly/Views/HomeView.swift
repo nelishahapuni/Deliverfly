@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct HomeView: View {
+    let list: [Restaurant] = .restaurants
+
     var body: some View {
         ScrollView {
             VStack (alignment: .leading) {
@@ -58,28 +60,12 @@ private extension HomeView {
     }
     
     var restaurantsList: some View {
-        VStack {
-            RestaurantPreview(
-                image: .inNOut,
-                name: "In-N-Out Burger",
-                items: "Double Double - Chocolate Shake - French Fries",
-                rating: 5.0,
-                time: 20
-            )
-            RestaurantPreview(
-                image: .fiveGuys,
-                name: "Five Guys",
-                items: "Cheeseburger - Fries - Milkshake - Sandwich",
-                rating: 4.7,
-                time: 45
-            )
-            RestaurantPreview(
-                image: .subway,
-                name: "Subway",
-                items: "Wrap - Footlong - Salad - Cookie",
-                rating: 3.5,
-                time: 50
-            )
+        ForEach(list, id: \.self) { restaurant in
+            Button {
+               // go to restaurant
+            } label: {
+                RestaurantPreview(restaurant: restaurant)
+            }
         }
     }
 }
