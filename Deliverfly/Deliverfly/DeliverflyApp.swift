@@ -9,8 +9,9 @@ import SwiftUI
 
 @main
 struct DeliverflyApp: App {
+    @ObservedObject private var navigation = Navigation()
     @State private var isSplash = true
-
+    
     var body: some Scene {
         WindowGroup {
             if isSplash {
@@ -21,7 +22,18 @@ struct DeliverflyApp: App {
                         }
                     }
             } else {
-                HomeView()
+                NavigationStack(path: $navigation.navPath) {
+                    HomeView()
+                        .navigationBarBackButtonHidden(true)
+                        .navigationDestination(for: Navigation.View.self) { view in
+                            switch view {
+                            case .restaurant(let info):
+                                RestaurantView(restaurant: info)
+                                    .navigationBarBackButtonHidden(true)
+                            }
+                        }
+                }
+                .environmentObject(navigation)
             }
         }
     }

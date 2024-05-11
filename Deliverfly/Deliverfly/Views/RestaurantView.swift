@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct RestaurantView: View {
+    @EnvironmentObject private var navigation: Navigation
     @State private var selectedFood: Food?
     let restaurant: Restaurant
     
@@ -37,7 +38,7 @@ private extension RestaurantView {
     
     var backButton: some View {
         Button {
-            // go back
+            navigation.goBack()
         } label: {
             backButtonView
         }
