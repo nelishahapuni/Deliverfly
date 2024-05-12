@@ -10,24 +10,27 @@ import SwiftUI
 struct HomeView: View {
     @EnvironmentObject private var navigation: Navigation
     @EnvironmentObject private var firebase: Firebase
-    let list: [Restaurant] = .restaurants
-
+    
     var body: some View {
-        ScrollView {
-            VStack (alignment: .leading) {
-                HStack {
-                    historyButton
-                    deliveryAddress
-                    Spacer()
+        if firebase.restaurants.isEmpty {
+            ProgressView()
+                .task {
+                    await firebase.fetchData()
                 }
-                restaurants
-                restaurantsList
+        } else {
+            ScrollView {
+                VStack (alignment: .leading) {
+                    HStack {
+                        historyButton
+                        deliveryAddress
+                        Spacer()
+                    }
+                    restaurants
+                    restaurantsList
+                }
             }
-        }
-        .padding(.horizontal)
-        .scrollIndicators(.hidden)
-        .task {
-            await firebase.fetchData()
+            .padding(.horizontal)
+            .scrollIndicators(.hidden)
         }
     }
 }
@@ -65,7 +68,7 @@ private extension HomeView {
     }
     
     var restaurantsList: some View {
-        ForEach(list, id: \.self) { restaurant in
+        ForEach(firebase.restaurants, id: \.self) { restaurant in
             Button {
                 navigation.goTo(view: .restaurant(info: restaurant))
             } label: {

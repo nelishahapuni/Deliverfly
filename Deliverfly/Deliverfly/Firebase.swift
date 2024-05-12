@@ -11,21 +11,40 @@ import FirebaseDatabaseSwift
 
 class Firebase: ObservableObject {
     let database = Database.database(url: "https://deliverfly-swiftui-default-rtdb.europe-west1.firebasedatabase.app/").reference()
+    @Published var restaurants: [Restaurant] = []
     
     func fetchData() async {
-        let ids = ["100", "101", "102", "103"]        
+        let ids = ["1", "2", "3"]
+        let restaurantsData = try? await database.child("Restaurants").getData()
         let foodsData = try? await database.child("Foods").getData()
         
-        // write func decodeFood first, then the following:
-        let foods = ids.reduce(into: [Food]()) { foods, id in
-            foodsData?.decodeFood(id: id).map { foods.append($0) }
+        await MainActor.run {
+            restaurants = ids.reduce(into: [Restaurant]()) { restaurant, id in
+                // write func decodeRestaurant first, then the following:
+                restaurantsData?.decodeRestaurant(id: id, foodsData: foodsData).map { restaurant.append($0) }
+            }
         }
         
-        dump(foods)
+        dump(restaurants)
     }
 }
 
 extension DataSnapshot {
+    
+    func decodeRestaurant(id: String, foodsData: DataSnapshot?) -> Restaurant? {
+        guard let restaurant = self.childSnapshot(forPath: id).value as? [String: AnyObject] else { return nil }
+        
+        let name = restaurant["name"] as? String ?? ""
+        let description = restaurant["description"] as? String ?? ""
+        let image = restaurant["image"] as? String ?? ""
+        let rating = restaurant["rating"] as? Double ?? 0.0
+        let time = restaurant["time"] as? Int ?? 0
+        let foods: [Food] = (restaurant["foods"] as? [String] ?? []).reduce(into: [Food]()) { newArray, id  in
+            foodsData?.decodeFood(id: id).map { newArray.append($0) }
+        }
+        
+        return Restaurant(id: id, name: name, description: description, image: image, rating: rating, time: time, foods: foods)
+    }
     
     func decodeFood(id: String) -> Food? {
         guard let food = self.childSnapshot(forPath: id).value as? [String: AnyObject] else { return nil }
