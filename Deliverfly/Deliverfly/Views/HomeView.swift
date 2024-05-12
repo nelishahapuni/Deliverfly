@@ -39,7 +39,7 @@ private extension HomeView {
     
     var historyButton: some View {
         Button {
-            // go to History
+            navigation.goTo(view: .history)
         } label: {
             Image(.history)
                 .padding()

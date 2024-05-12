@@ -16,7 +16,7 @@ class Navigation: ObservableObject {
         case restaurant(info: Restaurant)
         case order(info: Binding<Order>, isOrdering: Bool = true)
         //status
-        //history
+        case history
     }
     
     func goTo(view: View) {
