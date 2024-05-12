@@ -12,7 +12,6 @@ struct HistoryView: View {
     @EnvironmentObject private var firebase: Firebase
     @State private var selectedOrder: Order?
     @State private var loadingOrders = true
-    let orders: [Order] = .previewDataArray
     
     var body: some View {
         VStack {
@@ -27,10 +26,10 @@ struct HistoryView: View {
             Spacer()
         }
         .task {
-            // fetchOrders
+            await firebase.fetchOrders()
         }
         .onDisappear {
-            // resetOrders
+            firebase.resetOrders()
             loadingOrders = true
         }
     }
@@ -38,7 +37,7 @@ struct HistoryView: View {
 
 extension HistoryView {
     @ViewBuilder var historyView: some View {
-        if orders.isEmpty {
+        if firebase.orders.isEmpty {
             if loadingOrders {
                 ProgressView()
                     .task {
@@ -52,7 +51,7 @@ extension HistoryView {
         } else {
             VStack {
                 ScrollView {
-                    ForEach(orders, id: \.self) { order in
+                    ForEach(firebase.orders, id: \.self) { order in
                         VStack(alignment: .center) {
                             OrderPreview(order: order)
                             viewOrderButton(order: order)
