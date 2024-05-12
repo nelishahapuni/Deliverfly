@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>API_KEY</key>
+	<string>AIzaSyDdD0ZFZ5dI3kphwFZ8vDA1RyU4InYgJU4</string>
+	<key>GCM_SENDER_ID</key>
+	<string>42860087572</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>tumo.Deliverfly</string>
+	<key>PROJECT_ID</key>
+	<string>deliverfly</string>
+	<key>STORAGE_BUCKET</key>
+	<string>deliverfly.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:42860087572:ios:c9d1a09a3beb5ee9135a01</string>
+</dict>
+</plist>
