@@ -92,7 +92,7 @@ private extension OrderView {
             Task {
                 await firebase.placeOrder(order)
             }
-            navigation.goToRoot()
+            navigation.goTo(view: .status(info: .success))
         } label: {
             Text("Place order".uppercased())
                 .bold()
