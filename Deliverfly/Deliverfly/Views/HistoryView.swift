@@ -46,7 +46,7 @@ extension HistoryView {
                         }
                     }
             } else {
-                Text("No orders")
+                StatusPreview(status: .error)
             }
         } else {
             VStack {

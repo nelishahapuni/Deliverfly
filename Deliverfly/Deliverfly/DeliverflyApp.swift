@@ -43,6 +43,9 @@ struct DeliverflyApp: App {
                             case .history:
                                 HistoryView()
                                     .navigationBarBackButtonHidden(true)
+                            case .status(let info):
+                                StatusView(status: info)
+                                    .navigationBarBackButtonHidden(true)
                             }
                         }
                 }

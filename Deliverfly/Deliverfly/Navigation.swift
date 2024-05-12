@@ -15,7 +15,7 @@ class Navigation: ObservableObject {
     enum View: Hashable {
         case restaurant(info: Restaurant)
         case order(info: Binding<Order>, isOrdering: Bool = true)
-        //status
+        case status(info: Status)
         case history
     }
     
