@@ -6,11 +6,16 @@
 //
 
 import SwiftUI
+import FirebaseCore
 
 @main
 struct DeliverflyApp: App {
     @ObservedObject private var navigation = Navigation()
     @State private var isSplash = true
+    
+    init() {
+        FirebaseApp.configure()
+    }
     
     var body: some Scene {
         WindowGroup {
