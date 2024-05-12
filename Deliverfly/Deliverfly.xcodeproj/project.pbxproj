@@ -23,6 +23,7 @@
 		05AEEDC92BEFCBB7009AA32C /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDC82BEFCBB7009AA32C /* Item.swift */; };
 		05AEEDD12BEFDB71009AA32C /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDD02BEFDB71009AA32C /* Order.swift */; };
 		05AEEDD32BEFDC25009AA32C /* ItemPreview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDD22BEFDC25009AA32C /* ItemPreview.swift */; };
+		05AEEDD52BEFDCAB009AA32C /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 05AEEDD42BEFDCAB009AA32C /* OrderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		05AEEDC82BEFCBB7009AA32C /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		05AEEDD02BEFDB71009AA32C /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		05AEEDD22BEFDC25009AA32C /* ItemPreview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPreview.swift; sourceTree = "<group>"; };
+		05AEEDD42BEFDCAB009AA32C /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				05A7807F2BEE7C1600575CBC /* HomeView.swift */,
 				05AEEDB82BEF8FD1009AA32C /* RestaurantView.swift */,
 				05AEEDC42BEFC147009AA32C /* FoodView.swift */,
+				05AEEDD42BEFDCAB009AA32C /* OrderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -189,6 +192,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				053C10592BEE29B200402C5D /* DeliverflyApp.swift in Sources */,
+				05AEEDD52BEFDCAB009AA32C /* OrderView.swift in Sources */,
 				05A780802BEE7C1600575CBC /* HomeView.swift in Sources */,
 				05AEEDC32BEFBE90009AA32C /* Ingredient.swift in Sources */,
 				05AEEDD32BEFDC25009AA32C /* ItemPreview.swift in Sources */,

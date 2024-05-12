@@ -14,6 +14,7 @@ struct FoodView: View {
     private var total: Double {
         return food.price*Double(quantity)
     }
+    @Binding var orderItems: [Item]
     let food: Food
     
     var body: some View {
@@ -145,7 +146,7 @@ private extension FoodView {
     
     var addToCart: some View {
         Button {
-            // add to cart
+            addToCartTapped()
             dismiss()
         } label: {
             Text("Add to Cart".uppercased())
@@ -184,8 +185,17 @@ private extension FoodView {
             selectedIngredients.append(ingredient)
         }
     }
+    
+    func addToCartTapped() {
+        let item = Item(
+            food: food,
+            quantity: quantity,
+            extras: selectedIngredients
+        )
+        orderItems.append(item)
+    }
 }
 
 #Preview {
-    FoodView(food: .doubleDouble)
+    FoodView(orderItems: .constant(.previewDataArray), food: .doubleDouble)
 }

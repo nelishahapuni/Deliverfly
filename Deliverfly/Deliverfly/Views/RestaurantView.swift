@@ -10,7 +10,18 @@ import SwiftUI
 struct RestaurantView: View {
     @EnvironmentObject private var navigation: Navigation
     @State private var selectedFood: Food?
+    @State private var hasCartItems = false
+    @State private var order: Order
     let restaurant: Restaurant
+    
+    init(restaurant: Restaurant) {
+        self.restaurant = restaurant
+        self.order = Order(id: String(Int.random(in: 10000..<99999)),
+                           date: Date().formatted(.dateTime.day(.twoDigits).month(.wide).year(.defaultDigits)),
+                           restaurant: .init(name: restaurant.name, image: restaurant.image),
+                           items: [],
+                           deliveryPrice: 0.0)
+    }
     
     var body: some View {
         ScrollView {
@@ -19,6 +30,7 @@ struct RestaurantView: View {
                     backButton
                     Text("Restaurant")
                     Spacer()
+                    cartButton
                 }
                 restaurantImage
                 nameText
@@ -31,6 +43,11 @@ struct RestaurantView: View {
         .sheet(item: $selectedFood) { item in
             foodView(item)
         }
+        .onChange(of: order.items.isEmpty) {
+            withAnimation(.easeInOut(duration: 0.3)) {
+                hasCartItems.toggle()
+            }
+        }
     }
 }
 
@@ -42,6 +59,31 @@ private extension RestaurantView {
         } label: {
             backButtonView
         }
+    }
+    
+    var cartButton: some View {
+        Button {
+            navigation.goTo(view: .order(info: $order))
+        } label: {
+            Image(.bag)
+                .renderingMode(.template)
+                .frame(width: 50, height: 50)
+                .foregroundStyle(hasCartItems ? .white : .gray)
+                .background(hasCartItems ? .darkBlue : .lightGray)
+                .clipShape(Circle())
+                .overlay(alignment: .topTrailing) {
+                    if hasCartItems {
+                        Text(String(order.items.count))
+                            .frame(width: 30, height: 30)
+                            .foregroundStyle(.white)
+                            .background(.darkOrange)
+                            .clipShape(Circle())
+                            .offset(y: -5)
+                            .transition(.scale)
+                    }
+                }
+        }
+        .disabled(!hasCartItems)
     }
     
     var restaurantImage: some View {
@@ -88,7 +130,7 @@ private extension RestaurantView {
     }
     
     @ViewBuilder func foodView(_ item: Food) -> some View {
-        FoodView(food: item)
+        FoodView(orderItems: $order.items, food: item)
             .presentationDetents(item.ingredients.isEmpty ? [.fraction(0.63)] : [.fraction(0.93)])
             .presentationDragIndicator(.visible)
             .presentationCornerRadius(30)
