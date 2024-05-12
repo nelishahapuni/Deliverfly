@@ -30,6 +30,9 @@ struct DeliverflyApp: App {
                             case .restaurant(let info):
                                 RestaurantView(restaurant: info)
                                     .navigationBarBackButtonHidden(true)
+                            case .order(let info, let isOrdering):
+                                OrderView(order: info, isOrdering: isOrdering)
+                                    .navigationBarBackButtonHidden(true)
                             }
                         }
                 }
