@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @EnvironmentObject private var navigation: Navigation
+    @EnvironmentObject private var firebase: Firebase
     let list: [Restaurant] = .restaurants
 
     var body: some View {
@@ -25,6 +26,9 @@ struct HomeView: View {
         }
         .padding(.horizontal)
         .scrollIndicators(.hidden)
+        .task {
+            await firebase.fetchData()
+        }
     }
 }
 
