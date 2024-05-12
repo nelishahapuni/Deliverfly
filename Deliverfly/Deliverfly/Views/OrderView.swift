@@ -9,6 +9,7 @@ import SwiftUI
 
 struct OrderView: View {
     @EnvironmentObject private var navigation: Navigation
+    @EnvironmentObject private var firebase: Firebase
     @Binding var order: Order
     let isOrdering: Bool
     
@@ -88,6 +89,9 @@ private extension OrderView {
     
     var placeOrder: some View {
         Button {
+            Task {
+                await firebase.placeOrder(order)
+            }
             navigation.goToRoot()
         } label: {
             Text("Place order".uppercased())

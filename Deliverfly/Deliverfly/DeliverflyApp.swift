@@ -40,6 +40,9 @@ struct DeliverflyApp: App {
                             case .order(let info, let isOrdering):
                                 OrderView(order: info, isOrdering: isOrdering)
                                     .navigationBarBackButtonHidden(true)
+                            case .history:
+                                HistoryView()
+                                    .navigationBarBackButtonHidden(true)
                             }
                         }
                 }

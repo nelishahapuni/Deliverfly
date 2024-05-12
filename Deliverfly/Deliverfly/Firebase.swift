@@ -12,6 +12,7 @@ import FirebaseDatabaseSwift
 class Firebase: ObservableObject {
     let database = Database.database(url: "https://deliverfly-swiftui-default-rtdb.europe-west1.firebasedatabase.app/").reference()
     @Published var restaurants: [Restaurant] = []
+    @Published var orders: [Order] = []
     
     func fetchData() async {
         let ids = ["1", "2", "3"]
@@ -26,6 +27,52 @@ class Firebase: ObservableObject {
         }
         
         dump(restaurants)
+    }
+    
+    func fetchOrders() async {
+        guard let ordersData = try? await database.child("Orders").getData().children.allObjects as? [DataSnapshot] else { return }
+        let foodsData = try? await database.child("Foods").getData()
+
+        await MainActor.run {
+            orders = ordersData.reduce(into: [Order]()) { orders, data in
+                // write func decodeOrder first, then the following:
+                data.decodeOrder(id: data.key, foodsData: foodsData).map { orders.append($0) }
+            }
+        }
+        
+        dump(orders)
+    }
+    
+    func resetOrders() {
+        orders = []
+    }
+    
+    func placeOrder(_ order: Order) async {
+        let newOrder = database.child("Orders").child(String(order.id))
+        
+        do {
+            try await newOrder.child("date").setValue(order.date)
+            try await newOrder.child("restaurant").child("name").setValue(order.restaurant.name)
+            try await newOrder.child("restaurant").child("image").setValue(order.restaurant.image)
+            
+            for (index, item) in order.items.enumerated() {
+                let itemRef = newOrder.child("items").child(String(index))
+                
+                try await itemRef.child("id").setValue(item.food.id)
+                try await itemRef.child("quantity").setValue(item.quantity)
+
+                for (index, extra) in item.extras.enumerated() {
+                    let extraRef = itemRef.child("extras").child(String(index))
+                    try await extraRef.setValue(extra.rawValue)
+                }
+            }
+            
+            try await newOrder.child("deliveryPrice").setValue(order.deliveryPrice)
+            try await newOrder.child("total").setValue(order.total)
+
+        } catch {
+            print(error)
+        }
     }
 }
 
@@ -58,5 +105,25 @@ extension DataSnapshot {
         let price = food["price"] as? Double ?? 0.0
         
         return Food(id: id, name: name, description: description, image: image, ingredients: ingredients, price: price)
+    }
+    
+    func decodeOrder(id: String, foodsData: DataSnapshot?) -> Order? {
+        guard let order = self.value as? [String: AnyObject] else { return nil }
+        
+        let date = order["date"] as? String ?? ""
+        let restaurantName = order["restaurant"]?["name"] as? String ?? ""
+        let restaurantImage = order["restaurant"]?["image"] as? String ?? ""
+        let items = (order["items"] as? [AnyObject] ?? []).reduce(into: [Item]()) { newArray, item in
+            let id = item["id"] as? String ?? ""
+            guard let food = foodsData?.decodeFood(id: id) else { return }
+            let quantity = item["quantity"] as? Int ?? 0
+            let extras = (item["extras"] as? [String] ?? []).reduce(into: [Ingredient]()) { newArray, ingredient in
+                Ingredient(rawValue: ingredient).map { newArray.append($0) }
+            }
+            newArray.append(Item(food: food, quantity: quantity, extras: extras))
+        }
+        let deliveryPrice = order["deliveryPrice"] as? Double ?? 0.0
+        
+        return Order(id: id, date: date, restaurant: Order.Restaurant(name: restaurantName, image: restaurantImage), items: items, deliveryPrice: deliveryPrice)
     }
 }
