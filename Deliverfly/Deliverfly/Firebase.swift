@@ -27,6 +27,34 @@ class Firebase: ObservableObject {
         
         dump(restaurants)
     }
+    
+    func placeOrder(_ order: Order) async {
+        let newOrder = database.child("Orders").child(String(order.id))
+        
+        do {
+            try await newOrder.child("date").setValue(order.date)
+            try await newOrder.child("restaurant").child("name").setValue(order.restaurant.name)
+            try await newOrder.child("restaurant").child("image").setValue(order.restaurant.image)
+            
+            for (index, item) in order.items.enumerated() {
+                let itemRef = newOrder.child("items").child(String(index))
+                
+                try await itemRef.child("id").setValue(item.food.id)
+                try await itemRef.child("quantity").setValue(item.quantity)
+
+                for (index, extra) in item.extras.enumerated() {
+                    let extraRef = itemRef.child("extras").child(String(index))
+                    try await extraRef.setValue(extra.rawValue)
+                }
+            }
+            
+            try await newOrder.child("deliveryPrice").setValue(order.deliveryPrice)
+            try await newOrder.child("total").setValue(order.total)
+
+        } catch {
+            print(error)
+        }
+    }
 }
 
 extension DataSnapshot {
